@@ -6,7 +6,7 @@ describe('Given a SDET learning protractor', () => {
       browser.get('http://google.com');
     });
 
-    it('then shloud have a title', () => {
+    it('then should have a title', () => {
       expect(browser.getTitle()).toEqual('Google');
     });
   });
