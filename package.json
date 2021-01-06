@@ -4,7 +4,7 @@
   "description": "This is a Workshop about Protractor",
   "main": "index.js",
   "scripts": {
-    "clean": "if exist dist rd /s /q dist",
+    "clean": "rm -rf dist",
     "build": "npm run clean && tsc",
     "test": "npm run build && protractor dist/protractor/local.config.js"
   },
