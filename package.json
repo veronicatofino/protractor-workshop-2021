@@ -1,0 +1,33 @@
+{
+  "name": "workshop-protractor",
+  "version": "1.0.0",
+  "description": "This is a Workshop about Protractor",
+  "main": "index.js",
+  "scripts": {
+    "clean": "if exist dist rd /s /q dist",
+    "build": "npm run clean && tsc",
+    "test": "npm run build && protractor dist/protractor/local.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veronicatofino/protractor-workshop-2021.git"
+  },
+  "keywords": [
+    "ui-testing",
+    "dojo",
+    "practice",
+    "protractor"
+  ],
+  "author": "Veronica Tofino <veronicatofino@gmail.com> (veronicatofino)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/veronicatofino/protractor-workshop-2021/issues"
+  },
+  "homepage": "https://github.com/veronicatofino/protractor-workshop-2021#readme",
+  "devDependencies": {
+    "@types/jasminewd2": "^2.0.8",
+    "@types/node": "^14.14.20",
+    "protractor": "^7.0.0",
+    "typescript": "^4.1.3"
+  }
+}
