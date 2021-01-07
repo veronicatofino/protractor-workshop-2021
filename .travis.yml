@@ -1,0 +1,7 @@
+dist: xenial
+addons:
+  chrome: stable
+language: node_js
+cache:
+  directories:
+    - "node_modules"
