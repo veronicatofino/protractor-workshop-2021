@@ -5,11 +5,9 @@ export class PaymentStepPage {
 
   constructor () {
     this.bankOption = $('#HOOK_PAYMENT > div:nth-child(1) > div > p > a');
-
   }
 
   public async goToBankOption(): Promise<void> {
     await this.bankOption.click();
   }
-
 }

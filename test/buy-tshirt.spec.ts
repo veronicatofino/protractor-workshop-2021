@@ -16,12 +16,8 @@ describe('Buy a t-shirt', () => {
   const paymentStepPage: PaymentStepPage = new PaymentStepPage();
   const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
   const orderSummaryPage: OrderSummaryPage = new OrderSummaryPage();
-  beforeEach(() => {
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
-  });
   it('Then should be bought a t-shirt', async () => {
     await browser.get('http://automationpractice.com/');
-    await(browser.sleep(3000));
     await menuContentPage.goToTShirtMenu();
     await(browser.sleep(3000));
     await productsListPage.selectTShirt();
@@ -31,7 +27,7 @@ describe('Buy a t-shirt', () => {
     await summaryPage.goToSignInStepPage();
     await(browser.sleep(3000));
 
-    await signInPage.goToAddressStepPage();
+    await signInPage.goToAddressStepPage('vtofino@gmail.com', 'WorkshopProtractor');
     await(browser.sleep(3000));
 
     await addressStepPage.goToShippingStepPage();
