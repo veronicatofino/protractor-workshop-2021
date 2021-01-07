@@ -11,9 +11,9 @@ export class SignInStepPage {
     this.submitCreds = $('#SubmitLogin > span');
   }
 
-  public async goToAddressStepPage(): Promise<void> {
-    await this.emailCred.sendKeys('vtofino@gmail.com');
-    await this.passwCred.sendKeys('WorkshopProtractor');
+  public async goToAddressStepPage(email: string, password: string): Promise<void> {
+    await this.emailCred.sendKeys(email);
+    await this.passwCred.sendKeys(password);
     await this.submitCreds.click();
   }
 }
