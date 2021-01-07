@@ -22,17 +22,12 @@ describe('Buy a t-shirt', () => {
     await productsListPage.selectTShirt();
     await productAddedPage.goToSummaryStepPage();
     await summaryPage.goToSignInStepPage();
-
     await signInPage.goToAddressStepPage('vtofino@gmail.com', 'WorkshopProtractor');
-
     await addressStepPage.goToShippingStepPage();
-
     await shippingStepPage.acceptTerms();
-
     await shippingStepPage.goToPaymentStepPage();
     await paymentStepPage.goToBankOption();
     await bankPaymentPage.goToOrderSummaryPage();
-
     await orderSummaryPage.checkOrderConfirmation();
   });
 });
