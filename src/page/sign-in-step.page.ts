@@ -8,7 +8,7 @@ export class SignInStepPage {
   constructor () {
     this.emailCred = $('#email');
     this.passwCred = $('#passwd');
-    this.submitCreds = $('#SubmitLogin > span');
+    this.submitCreds = $('#SubmitLogin');
   }
 
   public async goToAddressStepPage(email: string, password: string): Promise<void> {

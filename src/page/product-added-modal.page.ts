@@ -4,7 +4,7 @@ export class ProductAddedPage {
   private summaryPage: ElementFinder;
 
   constructor () {
-    this.summaryPage = $('[style*="display: block;"] .button-container > a');
+    this.summaryPage = $('#layer_cart .button-container > a');
   }
 
   public async goToSummaryStepPage(): Promise<void> {
