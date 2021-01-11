@@ -4,7 +4,7 @@ export class ProductAddedPage {
   private summaryPage: ElementFinder;
 
   constructor () {
-    this.summaryPage = $('#layer_cart .button-container > a');
+    this.summaryPage = $('#layer_cart a[title="Proceed to checkout"]');
   }
 
   public async goToSummaryStepPage(): Promise<void> {
