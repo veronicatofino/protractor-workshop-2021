@@ -17,7 +17,7 @@ describe('Given a shopping page', async () => {
     const summaryPage: SummaryStepPage = new SummaryStepPage();
     beforeAll(async () => {
       await menuContentPage.goToTShirtMenu();
-      await productsListPage.selectTShirt();
+      await productsListPage.selectProduct('Faded Short Sleeve T-shirts');
       await productAddedPage.goToSummaryStepPage();
       await summaryPage.goToSignInStepPage();
     });
