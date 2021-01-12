@@ -154,3 +154,6 @@ $RECYCLE.BIN/
 
 # Typescript
 dist
+
+#Jasmine Awesome
+reports
