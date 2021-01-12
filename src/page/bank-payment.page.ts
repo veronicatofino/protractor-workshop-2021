@@ -4,7 +4,7 @@ export class BankPaymentPage {
   private finishBuy: ElementFinder;
 
   constructor () {
-    this.finishBuy = $('#cart_navigation > button > span');
+    this.finishBuy = $('.cart_navigation > button');
   }
 
   public async goToOrderSummaryPage(): Promise<void> {
