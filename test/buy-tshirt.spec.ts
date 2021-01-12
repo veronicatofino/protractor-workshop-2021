@@ -9,6 +9,7 @@ describe('Given a shopping page', async () => {
   beforeAll(async () => {
     await browser.get('http://automationpractice.com/');
   });
+
   describe('When want to buy a T Shirt', async () => {
     const menuContentPage: MenuContentPage = new MenuContentPage();
     const productsListPage: ProductsListPage = new ProductsListPage();
@@ -20,11 +21,13 @@ describe('Given a shopping page', async () => {
       await productAddedPage.goToSummaryStepPage();
       await summaryPage.goToSignInStepPage();
     });
+
     describe('And login to the page', async () => {
       const signInPage: SignInStepPage = new SignInStepPage();
       beforeAll(async () => {
         await signInPage.goToAddressStepPage('vtofino@gmail.com', 'WorkshopProtractor');
       });
+
       describe('And select the default address', async () => {
         const addressStepPage: AddressStepPage = new AddressStepPage();
         const shippingStepPage: ShippingStepPage = new ShippingStepPage();
@@ -33,6 +36,7 @@ describe('Given a shopping page', async () => {
           await shippingStepPage.acceptTerms();
           await shippingStepPage.goToPaymentStepPage();
         });
+
         describe('And pay for the order with bank option', async () => {
           const paymentStepPage: PaymentStepPage = new PaymentStepPage();
           const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
@@ -40,6 +44,7 @@ describe('Given a shopping page', async () => {
             await paymentStepPage.goToBankOption();
             await bankPaymentPage.goToOrderSummaryPage();
           });
+
           it('Then the buy should be complete', async () => {
             const orderSummaryPage: OrderSummaryPage = new OrderSummaryPage();
             await orderSummaryPage.checkOrderConfirmation();
