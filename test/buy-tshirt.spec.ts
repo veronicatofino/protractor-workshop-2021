@@ -5,7 +5,7 @@ import { MenuContentPage, ProductsListPage,
         ShippingStepPage, PaymentStepPage,
         BankPaymentPage, OrderSummaryPage } from '../src/page';
 
-describe('Given a shopping page', async () => {
+describe('Given a shopping page', () => {
   beforeAll(async () => {
     await browser.get('http://automationpractice.com/');
   });
@@ -22,13 +22,13 @@ describe('Given a shopping page', async () => {
       await summaryPage.goToSignInStepPage();
     });
 
-    describe('And login to the page', async () => {
+    describe('And login to the page', () => {
       const signInPage: SignInStepPage = new SignInStepPage();
       beforeAll(async () => {
         await signInPage.goToAddressStepPage('vtofino@gmail.com', 'WorkshopProtractor');
       });
 
-      describe('And select the default address', async () => {
+      describe('And select the default address', () => {
         const addressStepPage: AddressStepPage = new AddressStepPage();
         const shippingStepPage: ShippingStepPage = new ShippingStepPage();
         beforeAll(async () => {
@@ -37,7 +37,7 @@ describe('Given a shopping page', async () => {
           await shippingStepPage.goToPaymentStepPage();
         });
 
-        describe('And pay for the order with bank option', async () => {
+        describe('And pay for the order with bank option', () => {
           const paymentStepPage: PaymentStepPage = new PaymentStepPage();
           const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
           beforeAll(async () => {
