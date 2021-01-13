@@ -8,7 +8,7 @@ export class ProductAddedPage {
   }
 
   public async goToSummaryStepPage(): Promise<void> {
-    await browser.wait(ExpectedConditions.elementToBeClickable(this.summaryPage), 4000);
+    await browser.wait(ExpectedConditions.elementToBeClickable(this.summaryPage), 10000);
     await this.summaryPage.click();
   }
 }
