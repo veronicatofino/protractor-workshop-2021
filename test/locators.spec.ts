@@ -1,6 +1,5 @@
 import { browser } from 'protractor';
-import { PersonalInformationPage } from '../src/page';
-import { PersonalData } from '../src/personal-data';
+import { PersonalInformationPage, IPersonalInformation } from '../src/page';
 
 describe('Given a page with a form', async () => {
   beforeAll(async () => {
@@ -8,8 +7,7 @@ describe('Given a page with a form', async () => {
   });
 
   describe('When want to fill the form', async () => {
-    const personalData = new PersonalData();
-    Object.assign(personalData, {
+    const personalData: IPersonalInformation = {
       firstName: 'Alejandro',
       lastName: 'Perdomo',
       sex: 'Male',
@@ -23,7 +21,7 @@ describe('Given a page with a form', async () => {
         'Switch Commands',
         'Wait Commands',
         'WebElement Commands']
-    });
+    };
     const personalInformationPage: PersonalInformationPage = new PersonalInformationPage();
     beforeAll(async () => {
       await personalInformationPage.fillForm(personalData);

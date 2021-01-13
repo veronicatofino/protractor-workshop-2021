@@ -1,5 +1,15 @@
 import { ElementFinder, browser, ExpectedConditions, element, by } from 'protractor';
-import { PersonalData } from '../personal-data';
+
+export interface IPersonalInformation {
+  firstName: string;
+  lastName: string;
+  sex: string;
+  experience: number;
+  profession: string[];
+  tools: string[];
+  continent: string;
+  commands: string[];
+}
 
 export class PersonalInformationPage {
   private formTitle: ElementFinder;
@@ -11,10 +21,10 @@ export class PersonalInformationPage {
   private submitButton: ElementFinder;
 
   constructor () {
-    this.formTitle = element.all(by.css('.tutorial-content h1')).first();
-    this.firstNameField = element(by.name('firstname'));
-    this.lastNameField = element(by.name('lastname'));
-    this.submitButton = element(by.name('submit'));
+    this.formTitle = element(by.cssContainingText('h1', 'Selenium - Automation Practice Form'));
+    this.firstNameField = element(by.css('[name="firstname"]'));
+    this.lastNameField = element(by.css('[name="lastname"]'));
+    this.submitButton = element(by.css('[name="submit"]'));
   }
 
   private async sexRadioButtonField(sex: string) {
@@ -51,7 +61,7 @@ export class PersonalInformationPage {
     });
   }
 
-  public async fillForm(personInfo: PersonalData): Promise<void> {
+  public async fillForm(personInfo: IPersonalInformation): Promise<void> {
     await this.firstNameField.sendKeys(personInfo.firstName);
     await this.lastNameField.sendKeys(personInfo.lastName);
 
