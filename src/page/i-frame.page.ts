@@ -14,4 +14,12 @@ export class IFramePage {
   public async getFormFrameHeight(): Promise<number> {
     return parseInt((await this.iFrame1.getAttribute('height')), 0);
   }
+
+  public async switchToFrame(): Promise<void> {
+    await browser.switchTo().frame(this.iFrame1.getWebElement());
+  }
+
+  public async switchToMainPage(): Promise<void> {
+    await browser.switchTo().defaultContent();
+  }
 }

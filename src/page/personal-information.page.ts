@@ -1,4 +1,5 @@
 import { ElementFinder, browser, ExpectedConditions, element, by } from 'protractor';
+import * as fs from 'fs';
 
 export interface IPersonalInformation {
   firstName: string;
@@ -6,6 +7,7 @@ export interface IPersonalInformation {
   sex: string;
   experience: number;
   profession: string[];
+  profilePicture: string;
   tools: string[];
   continent: string;
   commands: string[];
@@ -17,13 +19,16 @@ export class PersonalInformationPage {
   private lastNameField: ElementFinder;
   private sexField: ElementFinder;
   private experienceField: ElementFinder;
+  private profilePictureField: ElementFinder;
   private continentField: ElementFinder;
   private submitButton: ElementFinder;
+  private path = require('path');
 
   constructor () {
     this.formTitle = element(by.cssContainingText('h1', 'Selenium - Automation Practice Form'));
     this.firstNameField = element(by.css('[name="firstname"]'));
     this.lastNameField = element(by.css('[name="lastname"]'));
+    this.profilePictureField = element(by.css('[name="photo"]'));
     this.submitButton = element(by.css('[name="submit"]'));
   }
 
@@ -61,6 +66,19 @@ export class PersonalInformationPage {
     });
   }
 
+  private async uploadFile(fileToUpload: string) {
+    const absolutePath = this.path.resolve(__dirname, fileToUpload);
+    if (fs.existsSync(absolutePath)) {
+      await this.profilePictureField.sendKeys(absolutePath);
+    }
+  }
+
+  public async checkFileLoaded(fileToUpload: string): Promise<void> {
+    let fileLoaded = await (this.profilePictureField).getAttribute('value');
+    fileLoaded = fileLoaded.split(/(\\|\/)/g).pop();
+    await expect(fileLoaded).toBe(fileToUpload);
+  }
+
   public async fillForm(personInfo: IPersonalInformation): Promise<void> {
     await this.firstNameField.sendKeys(personInfo.firstName);
     await this.lastNameField.sendKeys(personInfo.lastName);
@@ -68,6 +86,7 @@ export class PersonalInformationPage {
     await this.sexRadioButtonField(personInfo.sex);
     await this.experienceRadioButtonField(personInfo.experience.toString());
     this.professionsCheckboxField(personInfo.profession);
+    await this.uploadFile(personInfo.profilePicture);
     this.toolsCheckboxField(personInfo.tools);
     await this.continetComboBoxField(personInfo.continent);
     this.commandsComboBoxField(personInfo.commands);
