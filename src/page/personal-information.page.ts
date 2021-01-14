@@ -70,10 +70,7 @@ export class PersonalInformationPage {
     const absolutePath = this.path.resolve(__dirname, fileToUpload);
     if (fs.existsSync(absolutePath)) {
       await this.profilePictureField.sendKeys(absolutePath);
-    }else {
-      console.log('PATH NOT FOUND');
     }
-
   }
 
   public async checkFileLoaded(fileToUpload: string): Promise<void> {
